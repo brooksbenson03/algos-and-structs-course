@@ -17,10 +17,18 @@
 //       '### '
 //       '####'
 
-function steps(n, step) {
-  if (n === step) return
-
-  console.log()
+function iterativeSteps(n) {
+  for (let x = 1; x <= n; x++) {
+    console.log('#'.repeat(x) + ' '.repeat(n - x))
+  }
 }
 
-module.exports = steps;
+function recursiveSteps(n, step = 1) {
+  if (n < step) return
+  
+  console.log('#'.repeat(step) + ' '.repeat(n - step))
+
+  steps(n, step + 1)
+}
+
+module.exports = iterativeSteps;
